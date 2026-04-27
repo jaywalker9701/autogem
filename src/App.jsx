@@ -10,29 +10,37 @@ import UnderPressure from './pages/UnderPressure';
 import News from './pages/News';
 import Contact from './pages/Contact';
 import Products from './pages/Products';
+import ProductDetail from './pages/ProductDetail';
+import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
+import { CartProvider } from './context/CartContext';
 
 function App() {
   return (
-    <Router>
-      <div className="site-wrapper">
-        <TopBar />
-        <Navbar />
-        
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/emission" element={<EmissionComponents />} />
-          <Route path="/under-pressure" element={<UnderPressure />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/contact" element={<Contact />} />
-          {/* Add more routes as needed */}
-          <Route path="*" element={<Home />} /> {/* Fallback to Home */}
-        </Routes>
+    <CartProvider>
+      <Router>
+        <div className="site-wrapper">
+          <TopBar />
+          <Navbar />
+          
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/product/:code" element={<ProductDetail />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/emission" element={<EmissionComponents />} />
+            <Route path="/under-pressure" element={<UnderPressure />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
 
-        <Footer />
-      </div>
-    </Router>
+          <Footer />
+        </div>
+      </Router>
+    </CartProvider>
   );
 }
 

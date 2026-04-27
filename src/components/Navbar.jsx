@@ -1,9 +1,11 @@
-import { Search, Menu, X } from 'lucide-react';
+import { Search, Menu, X, ShoppingCart } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import { useCart } from '../context/CartContext';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cartCount } = useCart();
 
   return (
     <header className="main-header">
@@ -25,6 +27,10 @@ const Navbar = () => {
 
       <div className="nav-actions">
         <Search size={20} className="search-trigger" />
+        <NavLink to="/cart" className="cart-trigger">
+          <ShoppingCart size={20} />
+          {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+        </NavLink>
         <NavLink to="/products" className="nav-cta hide-mobile">Browse Products</NavLink>
         <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}

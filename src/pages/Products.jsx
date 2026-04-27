@@ -1,8 +1,10 @@
 import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import productsData from '../data/products.json';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Products = () => {
+    const navigate = useNavigate();
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -105,6 +107,8 @@ const Products = () => {
                                     transition={{ duration: 0.3, delay: (index % 3) * 0.1 }}
                                     key={`${product.code}-${index}`} 
                                     className="product-card"
+                                    onClick={() => navigate(`/product/${product.code}`)}
+                                    style={{ cursor: 'pointer' }}
                                 >
                                     <div className="product-image">
                                         {product.imageUrl ? (
@@ -135,7 +139,7 @@ const Products = () => {
                                                     <span className="price">£{product.priceInc} <small>inc VAT</small></span>
                                                 )}
                                             </div>
-                                            <button className="add-quote-btn">Add to Quote</button>
+                                            <button className="add-quote-btn">View Details</button>
                                         </div>
                                     </div>
                                 </motion.div>
