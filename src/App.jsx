@@ -9,6 +9,7 @@ import EmissionComponents from './pages/EmissionComponents';
 import UnderPressure from './pages/UnderPressure';
 import News from './pages/News';
 import Contact from './pages/Contact';
+import Products from './pages/Products';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/emission" element={<EmissionComponents />} />
           <Route path="/under-pressure" element={<UnderPressure />} />
           <Route path="/news" element={<News />} />

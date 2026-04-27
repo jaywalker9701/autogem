@@ -12,8 +12,7 @@ const Hero = () => {
           Autogem numbers alone, as we go 'beyond the transaction' with a unique partnership approach.
         </p>
         <div className="hero-btns">
-          <a href="#" className="btn-hero btn-navy">Our Story →</a>
-          <a href="#" className="btn-hero btn-white">Our Products →</a>
+          <a href="/products" className="btn-hero btn-navy">Our Products →</a>
         </div>
       </div>
     </section>
