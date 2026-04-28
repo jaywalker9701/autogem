@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TopBar from './components/TopBar';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import CookieBanner from './components/CookieBanner';
 import Home from './pages/Home';
 import About from './pages/About';
 import EmissionComponents from './pages/EmissionComponents';
@@ -38,6 +39,7 @@ function App() {
           </Routes>
 
           <Footer />
+          <CookieBanner />
         </div>
       </Router>
     </CartProvider>
